@@ -203,6 +203,9 @@ h2 {
         -ms-flex-align: start;
             align-items: flex-start;
   }
+  .homepage_hero-section * {
+    margin-bottom: 1%;
+  }
 }
 
 .homepage_hero-section .title {
@@ -373,6 +376,13 @@ h2 {
   margin: 2%;
   -webkit-perspective: 1000px;
           perspective: 1000px;
+}
+
+@media (max-width: 600px) {
+  .flip_cards-section .cards-container .flip-card-container {
+    width: 20rem;
+    height: 25rem;
+  }
 }
 
 .flip_cards-section .cards-container .flip-card {
