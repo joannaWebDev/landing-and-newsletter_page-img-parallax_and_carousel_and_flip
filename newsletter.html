@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="KingEclient is a global Digital Consultancy Agency firm. We improve customer satisfaction through great usability, data, design and a user-centered experience." />
+  <meta property="og:image"
+    content="https://kingeclient.com/wp-content/uploads/2018/09/cropped-logo-kingeclient-turquesa.png" />
+  <meta property="og:image:width" content="512" />
+  <meta property="og:image:height" content="512" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="KingEclient | Digital Consultancy Agency" />
+  <meta property="og:description"
+    content="KingEclient is a global Digital Consultancy Agency firm. We improve customer satisfaction through great usability, data, design and a user-centered experience." />
+  <meta property="og:url" content="https://kingeclient.com/" />
+  <meta property="og:site_name" content="KingEclient" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="KingEclient | Digital Consultancy Agency" />
+  <meta name="twitter:description"
+    content="KingEclient is a global Digital Consultancy Agency firm. We improve customer satisfaction through great usability, data, design and a user-centered experience." />
+  <meta name="twitter:image"
+    content="https://kingeclient.com/wp-content/uploads/2018/09/cropped-logo-kingeclient-turquesa.png" />
+  <meta name="twitter:image:width" content="512" />
+  <meta name="twitter:image:height" content="512" />
+  <title>KingEclient | Newsletter</title>
+  <link rel="shortcut icon" href="assets/shared/favicon.png" type="image/png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <header class="newsletter-header">
+    <div >
+      <a href="index.html" title="KingEclient Home" >
+        <img src="assets/shared/Brand.svg" alt="KingEclient logo" width="160" />
+      </a>
+    </div>
+    
+    <div>
+      <img src="assets/shared/20_Years.svg" alt="20 years icon" width="60" />
+    </div> 
+  </header>
+
+  <main>
+    <section class="hero-section">
+      <div class="hero-image-div">
+        <img class="hero-image" src="assets/Newsletter/hero.png" alt="Hero Image little girl running" />
+      </div>
+    </section>
+
+    <section class="banner-section">
+      <h1>Accede a KingEclient y adjunta los documentos pendientes</h1>
+    </section>
+
+    <section class="user_greeting-section">
+      <p id="user-name"></p>
+      <p>Para poder completar tu solicitud tendrás que facilitarnos los siguientes documentos:</p>
+
+      <div class="user-documents">
+        <div>
+          <img src="assets/Newsletter/document.png" alt="document icon" width="20" />
+          <span>Lorem ipsum dolor</span>
+        </div>
+        <div>
+          <img src="assets/Newsletter/document.png" alt="document icon" width="20">
+          <span>Lorem ipsum dolor</span>
+        </div>
+      </div>
+      <p>Si quieres puedes adjuntarlos ahora desde la Intranet.</p>
+
+      <button class="open-button" onclick="openForm()">Acceder<i class="arrow right"></i></button>
+
+      <div class="form-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+          <h1>Login</h1>
+      
+          <label for="email"><b>Email</b></label>
+          <input type="text" placeholder="Enter Email" name="email" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+      
+          <button type="submit" class="btn">Login</button>
+          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <p>Si necesitas ayuda, no dudes en contactarnos:</p>
+      <div class="contact-details">
+        <div>
+          <img src="assets/Newsletter/phone.png" alt="phone icon">
+          <span class="contact-info">932 72 48 90</span>
+        </div>
+        <div>
+          <img src="assets/Newsletter/email.png" alt="email icon">
+          <span class="contact-info">Escribenos un email</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+    <div class="footer-section">
+      <ul class="social_media">
+        <li>
+          <a href="https://www.facebook.com/kingeclient/" title="KingEclient's Facebook Page" target="_blank"
+            rel="noopener noreferrer"><img src="assets/Newsletter/facebook.png" alt="Facebook icon" width="25" /></a>
+        </li>
+        <li>
+          <a href="https://twitter.com/kingeclient?lang=en" title="KingEclient's Twitter Page" target="_blank"
+            rel="noopener noreferrer"><img src="assets/Newsletter/twitter.png" alt="Twitter icon" width="25" /></a>
+        </li>
+        <li>
+          <a href="https://www.linkedin.com/company/kingeclient/" title="KingEclient's LinkedIn Page" target="_blank"
+            rel="noopener noreferrer"><img src="assets/Newsletter/linkedin.png" alt="LinkedIn icon" width="25" /></a>
+        </li>
+        <li>
+          <a href="https://www.youtube.com/channel/UC019xyDb6unXbC4DWsbGnuw" title="KingEclient's Youtube Page"
+            target="_blank" rel="noopener noreferrer"><img src="assets/Newsletter/youtube.png" alt="Youtube icon"
+              width="25" /></a>
+        </li>
+      </ul>
+      
+      <nav class="newsletter-header">
+        <div>
+          <a href="https://kingeclient.com/" title="KingEclient Home" >
+            <img src="assets/Newsletter/Brand-white.png" alt="KingEclient logo" width="160" />
+          </a>
+        </div>
+        
+        <div>
+          <img src="assets/shared/20_Years.svg" alt="20 years icon" width="60" />
+        </div>
+      </nav>
+
+      <div class="footer_message">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac
+          metus nec erat fringilla ullamcorper nec sit amet nisl. Etiam
+          sagittis enim id vulputate tristique. Nunc faucibus molestie ante et
+          molestie.
+        </p>
+        <p>
+          Duis malesuada lectus sed interdum semper. Mauris bibendum metus
+          tortor, eget pretium risus viverra et. Nulla in malesuada metus.
+          Integer pretium magna metus. Nunc finibus, leo et molestie suscipit,
+          neque orci dignissim dui, eget fermentum nunc orci vitae eros.
+        </p>
+        <p>
+          Suspendisse fringilla porttitor enim quis hendrerit. Nam mauris leo,
+          convallis nec tristique nec, tempus vulputate ante. Sed ut laoreet
+          odio, eu blandit mauris. Class aptent taciti sociosqu ad litora
+          torquent per conubia nostra, per inceptos himenaeos.
+        </p>
+      </div>
+    </div>
+ 
+  <script src="js/newsletter.js"></script>
+</body>
+
+</html>

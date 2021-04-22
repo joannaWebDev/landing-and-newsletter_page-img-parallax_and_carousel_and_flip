@@ -1,0 +1,830 @@
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul,
+ol {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a,
+address {
+  font-style: inherit;
+  text-decoration: none;
+  color: inherit;
+}
+
+a,
+button {
+  cursor: pointer;
+}
+
+button {
+  outline: none;
+  border: none;
+}
+
+/* Make images easier to work with */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-weight: normal;
+}
+
+
+/*COMMON STYLES*/
+/*variables*/
+
+$font-stack: Roboto,
+sans-serif;
+$base-font-weight: 400;
+
+$background-color: #FAFAFA;
+$body-background-color: #fff;
+$brand-bg-color: #02E4E5;
+$primary-color: #000;
+$purple-color:#160042;
+$gray-text:#333;
+$gray-color:#768692;
+
+/*devices*/
+$small: 300px;
+$medium: 768px;
+
+html {
+  font-size: 16px;
+}
+
+// Magic:
+@media (min-width: $medium) {
+  html {
+    font-size: calc(12px + .8vw);
+  }
+}
+
+body {
+  font: 100% $font-stack;
+  font-size: 1rem;
+  font-weight: $base-font-weight;
+  color: $primary-color;
+  background-color: $body-background-color;
+  margin: 0 auto;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  overflow-x: hidden;
+  display: grid;
+  grid-template-rows: 1fr;
+}
+
+
+
+p {
+  font-size: 1rem;
+}
+
+h1 {
+  font-size: 1.4rem;
+}
+
+h2 {
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  display: inline-block;
+  height: 50px;
+  box-shadow: 0 25px 0 -23px $brand-bg-color;
+}
+
+
+.contact-info {
+  color: $brand-bg-color;
+  line-height: 1.6;
+}
+
+.button-alike {
+  background: #00C5C6;
+  color: $body-background-color;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  padding: 1% 3%;
+}
+
+/*HOMEPAGE*/
+
+.homepage-header {
+  margin: 3%;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: 1fr 5fr 1fr;
+
+  @media (max-width: $medium) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  ul {
+    justify-self: center;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    align-items: baseline;
+
+    li {
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    .active {
+      background-color: $brand-bg-color;
+      color: $purple-color;
+      border-radius: 50px;
+    }
+  }
+
+  /*the 20 years icon*/
+  .display-none {
+    display: none;
+
+    @media (min-width: 768px) {
+      display: block;
+      place-self: flex-end;
+    }
+  }
+
+}
+
+/*HOMEPAGE HERO*/
+.homepage_hero-section {
+  background: linear-gradient(90.02deg, #160042 0.01%, #0C7596 52.16%, #02E4E5 101.47%);
+  color: $body-background-color;
+  padding: 5%;
+
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 10px;
+  grid-auto-rows: 5rem;
+  grid-template-areas:
+    "a a a a g g g g"
+    "b b b b g g g g "
+    "c c c c g g g g"
+    "d e f f g g g g";
+  align-items: start;
+
+  @media (max-width: $medium) {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .title {
+    grid-area: a;
+    align-self: end;
+  }
+
+  .first-paragraph {
+    grid-area: b;
+  }
+
+  .second-paragraph {
+    grid-area: c;
+    font-size: 0.8rem;
+    align-self: end;
+  }
+
+  .first-btn {
+    grid-area: d;
+  }
+
+  .second-btn {
+    grid-area: e;
+  }
+
+  .icon {
+    grid-area: f;
+    background: $brand-bg-color;
+    border-radius: 50px;
+    padding: 2%;
+  }
+
+  .slider {
+    grid-area: g;
+    margin-top: 10%;
+  }
+
+  /*carousel*/
+  .carousel {
+    position: relative;
+    margin-top: 26px;
+
+    .carousel-inner {
+      position: relative;
+      overflow: hidden;
+      width: 100%;
+
+
+      .carousel-open:checked+.carousel-item {
+        position: static;
+        opacity: 100;
+      }
+
+      .carousel-item {
+        position: absolute;
+        opacity: 0;
+        -webkit-transition: opacity 0.6s ease-out;
+        transition: opacity 0.6s ease-out;
+
+        img {
+          border-radius: 12px;
+        }
+      }
+
+      .carousel-indicators {//FIXME bullets are not aligned
+        position: absolute;
+        bottom: 2%;
+        left: 0;
+        right: 0;
+        text-align: center;
+        z-index: 10;
+
+        li {
+          display: inline-block;
+          margin: 0 5px;
+
+          .carousel-bullet {
+            cursor: pointer;
+            font-size: 2.5rem;
+          }
+
+          .carousel-bullet:hover {
+            color: $brand-bg-color;
+          }
+        }
+      }
+    }
+    #carousel-1:checked~.carousel-indicators li:nth-child(1) .carousel-bullet,
+    #carousel-2:checked~.carousel-indicators li:nth-child(2) .carousel-bullet,
+    #carousel-3:checked~.carousel-indicators li:nth-child(3) .carousel-bullet {
+      color: $brand-bg-color;
+    }
+  }
+
+}
+
+/*FLIP CARD*/
+.flip_cards-section {
+  margin: 5 auto;
+  background: #F9F9F9;
+  padding: 0 5%;
+
+  h2 {
+    text-align: left;
+    margin: 5% 0;
+  }
+
+  .cards-container {
+    padding-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    @media (max-width: 600px) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* .flip-card-container */
+    .flip-card-container {
+      cursor: zoom-in;
+      width: 10rem;
+      height: 15rem;
+      margin: 2%;
+      perspective: 1000px;
+    }
+
+    /* .flip-card */
+    .flip-card {
+      width: inherit;
+      height: inherit;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: .6s .1s;
+    }
+
+    /* hover and focus-within states */
+    .flip-card-container:hover .flip-card,
+    .flip-card-container:focus-within .flip-card {
+      transform: rotateY(180deg);
+    }
+
+    /* .card-... */
+    .card-front,
+    .card-back {
+      width: 100%;
+      height: 100%;
+      border-radius: 5px;
+      background: $body-background-color;
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow: hidden;
+      backface-visibility: hidden;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    /* .card-front */
+    .card-front {
+      transform: rotateY(0deg);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+    }
+
+    /* .card-back */
+    .card-back {
+      transform: rotateY(180deg);
+      z-index: 1;
+    }
+
+    /* figure */
+    figure {
+      z-index: -1;
+    }
+
+    /* figure, .img-bg */
+    figure,
+    .img-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+
+      /* img */
+      img {
+        height: 100%;
+        border-radius: 5px;
+      }
+
+      /* figcaption */
+      figcaption {
+        display: block;
+
+        width: auto;
+        margin-top: 12%;
+        padding: 8px 22px;
+
+        font-weight: bold;
+        color: $body-background-color;
+        line-height: 1.6;
+        letter-spacing: 2px;
+        word-spacing: 6px;
+
+        position: absolute;
+        bottom: 0;
+        right: 0;
+
+      }
+
+      /* .img-bg */
+      .img-bg {
+        background: hsla(var(--hue), 25%, 10%, .5);
+      }
+    }
+
+    .card-front .img-bg {
+      clip-path: polygon(0 20%, 100% 40%, 100% 100%, 0 100%);
+    }
+
+    .card-front .img-bg::before {
+      content: "";
+      position: absolute;
+      top: 34%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(18deg);
+
+      width: 100%;
+      height: 6px;
+
+      transition: .1s;
+    }
+
+    .card-back .img-bg {
+      clip-path: polygon(0 0, 100% 0, 100% 80%, 0 60%);
+    }
+
+    /* hover state */
+    .flip-card-container:hover .card-front .img-bg::before {
+      width: 6px;
+    }
+  }
+}
+
+/*SECTION PARALLAX*/
+.parallax-section {
+
+  .parallax-content {
+    padding-top: 200px;
+    padding-bottom: 200px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-image: linear-gradient(90.02deg, rgba(22, 0, 66, 0.4) 0.01%, rgba(12, 117, 150, 0.4) 52.16%, rgba(2, 228, 229, 0.4) 101.47%), url("assets/Landing/cityscape-singapore-city-skyline.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+
+  .parallax-text {
+    width: 55vw;
+    padding: 0 5%;
+    color: $body-background-color;
+    z-index: 10;
+    opacity: .9;
+
+    * {
+      margin-bottom: 3%;
+    }
+
+    p {
+      opacity: 0.9;
+    }
+
+  }
+}
+
+/*SECTION TITLE*/
+.title-section {
+  margin: 5% auto;
+  text-align: center;
+
+  h2 {
+    margin: 0 auto;
+  }
+
+  .views {
+    margin: 5% 0;
+    display: flex;
+    justify-content: center;
+    text-align: left;
+
+    @media (max-width: $medium) {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Container holding the image and the text */
+    .image-container {
+      position: relative;
+      color: $body-background-color;
+      margin: 2%;
+      /* Top left text */
+
+      img {
+        filter: grayscale(100%);
+        -webkit-filter: grayscale(100%);
+      }
+
+      img:hover {
+        cursor: zoom-in;
+        filter: none;
+        -webkit-filter: grayscale(0);
+      }
+
+      .top-left {
+        position: absolute;
+        top: 10px;
+        left: 16px;
+      }
+
+      /* Bottom left text */
+      .bottom-left {
+        position: absolute;
+        bottom: 10px;
+        left: 16px;
+        padding: 2%;
+
+        p {
+          font-size: 0.6rem;
+          color: $body-background-color;
+          font-weight: 300;
+        }
+      }
+    }
+  }
+
+  button {
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    color: $brand-bg-color;
+    background: linear-gradient(0deg, #FFFFFF, #FFFFFF);
+    border-radius: 50px;
+    border: 1px solid $brand-bg-color;
+    padding: 1% 3%;
+
+  }
+}
+
+footer {
+  background: linear-gradient(0deg, #F9F9F9, #F9F9F9);
+  margin: 0 auto;
+  padding: 5%;
+  display: grid;
+  grid-gap: 15px;
+  grid-template-columns: repeat(3, 1fr);
+
+
+  @media (max-width: $medium) {
+    display: flex;
+    flex-direction: column;
+  }
+
+  >* {
+    place-self: stretch center;
+  }
+
+  * {
+    color: $gray-text;
+    font-size: small; //FIXME review the size. should be always 16?!
+  }
+
+
+  h4 {
+    font-weight: 600;
+  }
+
+  ul,
+  address {
+    line-height: 1.8;
+  }
+
+  ul {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .copyright {
+    width: 75vw;    
+    margin: 5% auto 0;
+    padding-top: 3%;
+    grid-column: 1 / span 4;
+    border-top: 1px solid #B4B4B4;
+    text-align: center;
+  }
+}
+
+
+/*NEWSLETTER PAGE*/
+.newsletter-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 3%;
+}
+
+// HERO-SECTION
+.hero-section {
+  display: grid;
+  grid-template-columns: 1fr; // stretch to the full frame
+  grid-template-rows: 350px; // 350 pixels tall
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  align-content: center;
+  justify-content: center;
+
+  .hero-image-div {
+    grid-area: 1 / 1 / 2 / 2;
+
+    .hero-image {
+      display: grid;
+      min-width: 350px; // Do not resize to smaller than this.
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+/*BANNER*/
+.banner-section {
+  margin: 2% auto;
+  text-align: center;
+
+  @media (min-width: $small) {
+    width: 95vw;
+  }
+
+  @media (min-width: $medium) {
+    width: 60vw;
+  }
+
+  h1 {
+    color: $purple-color;
+  }
+}
+
+/*USER GREETING*/
+.user_greeting-section {
+  margin: 2% auto;
+  text-align: center;
+  color: $gray-color;
+
+  //padding bottom  just for the direct children
+  >* {
+    padding-bottom: 2%;
+  }
+
+  .user-documents {
+    background: $background-color;
+    margin: 2% auto;
+    padding: 2%;
+    flex-direction: column;
+    text-align: left;
+    color: $gray-color;
+
+    @media screen and (max-width: $small) {
+      width: 95vw;
+    }
+
+    @media screen and (min-width: $medium) {
+      width: 45vw;
+    }
+
+    div {
+      margin: 2% 0;
+
+      span {
+        color: $purple-color;
+
+      }
+    }
+  }
+
+  button {
+    background: $brand-bg-color;
+    color: $body-background-color;
+    padding: 1% 3%;
+
+    &:hover {
+      background: $purple-color;
+    }
+
+    .arrow {
+      border: solid $body-background-color;
+      border-width: 0 2px 2px 0;
+      display: inline-block;
+      padding: 3px;
+      margin-left: 10px;
+    }
+
+    .right {
+      transform: rotate(-45deg);
+      -webkit-transform: rotate(-45deg);
+    }
+  }
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+
+  /* Add styles to the form container */
+  .form-container {
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+  }
+}
+
+/* Full-width input fields */
+.form-container input[type=text],
+.form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus,
+.form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: $brand-bg-color;
+  color: $body-background-color;
+  padding: 16px 20px;
+  width: 100%;
+  margin-bottom: 10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover,
+.open-button:hover {
+  opacity: 1;
+}
+
+
+/*SHARED STYLING*/
+.user-documents,
+.contact-details {
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+
+  div {
+    margin: 0 2%;
+    justify-content: center;
+
+    img {
+      display: inline; //FIXME image is flex-start should be in the middle
+    }
+  }
+}
+
+/*CONTACT*/
+.contact-section {
+  background: $background-color;
+  color: $gray-color;
+  margin: 0 auto;
+  padding: 5% 0;
+  border-top: 1px solid #D9D9D9;
+
+  p {
+    text-align: center;
+  }
+
+}
+
+/*FOOTER*/
+.footer-section {
+  background: $purple-color;
+  margin: 0 auto;
+
+  .social_media {
+    width: 90vw;
+    margin: 0 auto;
+    padding: 3% 0;
+    border-bottom: 1px solid $background-color;
+    display: flex;
+    justify-content: flex-end;
+
+    li {
+      align-items: flex-end;
+      padding: 1%;
+    }
+  }
+
+  .footer_message {
+    padding: 3%;
+
+    p {
+      font-size: 0.8rem;
+      margin: 2% 0;
+      color: $body-background-color;
+    }
+  }
+}
