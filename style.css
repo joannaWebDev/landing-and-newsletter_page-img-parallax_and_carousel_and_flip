@@ -8,6 +8,31 @@
   padding: 0;
 }
 
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  scrollbar-color: transparent transparent;
+  /* thumb and track color */
+  scrollbar-width: 0px;
+}
+
+*::-webkit-scrollbar {
+  width: 0;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: transparent;
+  border: none;
+}
+
+* {
+  -ms-overflow-style: none;
+}
+
 /* Remove list styles on ul, ol elements with a class attribute */
 ul,
 ol {
@@ -77,10 +102,7 @@ body {
       grid-template-rows: 1fr;
 }
 
-p {
-  font-size: 1rem;
-}
-
+/*general*/
 h1 {
   font-size: 1.4rem;
 }
@@ -95,6 +117,10 @@ h2 {
           box-shadow: 0 25px 0 -23px #02E4E5;
 }
 
+p {
+  font-size: 1rem;
+}
+
 .contact-info {
   color: #02E4E5;
   line-height: 1.6;
@@ -105,7 +131,7 @@ h2 {
   color: #fff;
   border-radius: 50px;
   font-size: 0.8rem;
-  padding: 1% 3%;
+  padding: 2% 3%;
 }
 
 /*HOMEPAGE*/
@@ -195,16 +221,8 @@ h2 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-  .homepage_hero-section * {
-    margin-bottom: 1%;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
   }
 }
 
@@ -225,6 +243,12 @@ h2 {
   grid-area: b;
 }
 
+@media (max-width: 768px) {
+  .homepage_hero-section .first-paragraph {
+    width: 90%;
+  }
+}
+
 .homepage_hero-section .second-paragraph {
   -ms-grid-row: 3;
   -ms-grid-column: 1;
@@ -234,6 +258,12 @@ h2 {
   -ms-flex-item-align: end;
       -ms-grid-row-align: end;
       align-self: end;
+}
+
+@media (max-width: 768px) {
+  .homepage_hero-section .second-paragraph {
+    width: 90%;
+  }
 }
 
 .homepage_hero-section .first-btn {
@@ -267,34 +297,45 @@ h2 {
   margin-top: 10%;
 }
 
+@media (max-width: 768px) {
+  .homepage_hero-section .slider {
+    margin: 0 auto;
+  }
+}
+
 .homepage_hero-section .carousel {
   position: relative;
   margin-top: 26px;
+  -webkit-filter: drop-shadow(0 0 10px #0003);
+          filter: drop-shadow(0 0 10px #0003);
+  -webkit-perspective: 100px;
+          perspective: 100px;
+  max-width: 37.5rem;
 }
 
-.homepage_hero-section .carousel .carousel-inner {
+.homepage_hero-section .carousel .carousel-viewport {
   position: relative;
   overflow: hidden;
   width: 100%;
 }
 
-.homepage_hero-section .carousel .carousel-inner .carousel-open:checked + .carousel-item {
+.homepage_hero-section .carousel .carousel-viewport .carousel-open:checked + .carousel-item {
   position: static;
   opacity: 100;
 }
 
-.homepage_hero-section .carousel .carousel-inner .carousel-item {
+.homepage_hero-section .carousel .carousel-viewport .carousel-item {
   position: absolute;
   opacity: 0;
   -webkit-transition: opacity 0.6s ease-out;
   transition: opacity 0.6s ease-out;
 }
 
-.homepage_hero-section .carousel .carousel-inner .carousel-item img {
+.homepage_hero-section .carousel .carousel-viewport .carousel-item img {
   border-radius: 12px;
 }
 
-.homepage_hero-section .carousel .carousel-inner .carousel-indicators {
+.homepage_hero-section .carousel .carousel-viewport .carousel-indicators {
   position: absolute;
   bottom: 2%;
   left: 0;
@@ -303,24 +344,37 @@ h2 {
   z-index: 10;
 }
 
-.homepage_hero-section .carousel .carousel-inner .carousel-indicators li {
+.homepage_hero-section .carousel .carousel-viewport .carousel-indicators li {
   display: inline-block;
   margin: 0 5px;
 }
 
-.homepage_hero-section .carousel .carousel-inner .carousel-indicators li .carousel-bullet {
+.homepage_hero-section .carousel .carousel-viewport .carousel-indicators li .carousel-bullet {
   cursor: pointer;
-  font-size: 2.5rem;
+  display: inline-block;
+  width: 1rem;
+  height: 1rem;
+  background: transparent;
+  background-clip: content-box;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  font-size: 0;
+  -webkit-transition: -webkit-transform 0.1s;
+  transition: -webkit-transform 0.1s;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s;
 }
 
-.homepage_hero-section .carousel .carousel-inner .carousel-indicators li .carousel-bullet:hover {
-  color: #02E4E5;
+.homepage_hero-section .carousel .carousel-viewport .carousel-indicators li .carousel-bullet:hover {
+  background-clip: content-box;
+  background: #fff;
 }
 
 .homepage_hero-section .carousel #carousel-1:checked ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
 .homepage_hero-section .carousel #carousel-2:checked ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
 .homepage_hero-section .carousel #carousel-3:checked ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
-  color: #02E4E5;
+  background-clip: content-box;
+  background: #fff;
 }
 
 /*FLIP CARD*/
@@ -541,6 +595,12 @@ h2 {
   color: #fff;
   z-index: 10;
   opacity: .9;
+}
+
+@media (max-width: 768px) {
+  .parallax-section .parallax-text {
+    width: 85vw;
+  }
 }
 
 .parallax-section .parallax-text * {
