@@ -24,21 +24,4 @@ Hay que maquetar la Newsletter, utilizando el html que veas oportuno.
 * compressed all images  
 * Newsletter page: you get a prompt message so you can put in your name, simulating a real world example, where we would know the user's name.  
 
-
-.carousel-bullet {
-            display: inline-block;
-            width: 1.5rem;
-            height: 1.5rem;
-            background: transparent;
-            background-clip: content-box;
-            border: 0.25rem solid white;
-            border-radius: 50%;
-            font-size: 0;
-            transition: transform 0.1s;
-            cursor: pointer;
-
-            &:hover {
-              background: $body-background-color;
-              background-clip: content-box;
-            }
-* 
+You can click the "acceder" button, and a form will pop-up.
