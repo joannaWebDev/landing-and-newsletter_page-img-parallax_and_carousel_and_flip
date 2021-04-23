@@ -238,7 +238,7 @@ p {
   .icon {
     grid-area: f;
     border-radius: 50px;
-    
+
   }
 
   .slider {
@@ -619,7 +619,7 @@ footer {
 
   * {
     color: $gray-text;
-    font-size: small; 
+    font-size: small;
   }
 
   h4 {
@@ -712,6 +712,7 @@ footer {
     flex-direction: column;
     text-align: left;
     color: $gray-color;
+
     >* {
       padding: 2%;
     }
@@ -825,7 +826,7 @@ footer {
     justify-content: center;
 
     img {
-      display: inline; //FIXME image is flex-start should be in the middle
+      display: inline;
     }
   }
 }
